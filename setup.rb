@@ -30,7 +30,7 @@ puts "Enter the second person's email: "
 email2 = gets.chomp
 
 # Defines a var that creates and points to a .pairs file
-file = File.new('~/.pairs', 'w')
+file = File.new('./.pairs', 'w')
 
 # file.close
 # puts 'creating .pairs file....'
