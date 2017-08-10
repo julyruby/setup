@@ -10,7 +10,7 @@ system 'apm install pigments'
 # @@@IMPORTANT@@@ To enable the theme in atom you have to go to preferences -> themes -> change the UI Theme to 'Seti'
 system 'apm install seti-ui'
 
-
+# ========> Unnecessary thanks to the system function that lets me specify the directory ~
 Dir.chdir # I think this changes the working directory to the ~/
 # puts 'Your are working in the...'
 # puts Dir.pwd
@@ -30,7 +30,7 @@ puts "Enter the second person's email: "
 email2 = gets.chomp
 
 # Defines a var that creates and points to a .pairs file
-file = File.new('./.pairs', 'w')
+file = File.new('~/.pairs', 'w')
 
 # file.close
 # puts 'creating .pairs file....'
@@ -52,3 +52,14 @@ target.write("  #{initials1}: #{email1}")
 target.write("\n")
 target.write("  #{initials2}: #{email2}")
 puts 'done....'
+
+puts "downloading bootstrap"
+# curls github's server for the bootstrap zip file. The k flag makes sure the connection is secure, the L follows redirects to ensure the actual zip is downloaded, and o names the output file.
+system 'curl -Lk https://github.com/twbs/bootstrap/releases/download/v3.3.7/bootstrap-3.3.7-dist.zip -o ~/Desktop/bootstrap.zip'
+
+system 'unzip ~/Desktop/bootstrap.zip -d ~/Desktop/'
+
+system 'cp ~/Desktop/bootstrap-3.3.7-dist/css/bootstrap.css ~/Desktop/bootstrap.css'
+
+puts 'downloading jQuery'
+system 'curl -Lk https://code.jquery.com/jquery-3.2.1.js -o ~/Desktop/jquery-3.2.1.js'
